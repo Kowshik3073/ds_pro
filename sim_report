@@ -6,9 +6,9 @@
 
 Version: SimJava 2.0
 
-Simulation date:         20 November 2025
-Simulation start time:   1:25:45 pm IST
-Simulation end time:     1:25:52 pm IST
+Simulation date:         24 November 2025
+Simulation start time:   9:03:11 pm IST
+Simulation end time:     9:03:13 pm IST
 
 ############################################################
 #            Overall simulation run information            #
@@ -29,18 +29,18 @@ Output analysis method:  None
 
 - Service time
 
-Sample mean:          0.3420589899407657
-Sample variance:      0.06250163650345855
-Sample std deviation: 0.25000327298549224
-Maximum:              0.6123853807221167
+Sample mean:          0.3520422986038376
+Sample variance:      0.06400161189276546
+Sample std deviation: 0.2529853985762132
+Maximum:              0.8082036497071385
 Minimum:              0.01926164492033422
 
 - Overloading status : DC1-Broker-0
 
-Sample mean:          0.3420589899407657
-Sample variance:      0.06250163650345855
-Sample std deviation: 0.25000327298549224
-Maximum:              0.6123853807221167
+Sample mean:          0.3520422986038376
+Sample variance:      0.06400161189276546
+Sample std deviation: 0.2529853985762132
+Maximum:              0.8082036497071385
 Minimum:              0.01926164492033422
 
 - Overloading status : DC1-Broker-1
@@ -231,17 +231,17 @@ Minimum:              0.0
 
 - UB Response time
 
-Sample mean:          300.05616085170834
-Sample variance:      434.029270390977
-Sample std deviation: 20.833369156019316
+Sample mean:          300.066143895239
+Sample variance:      434.0344919877629
+Sample std deviation: 20.833494473749788
 Maximum:              369.11519830842735
 Minimum:              237.0591758233495
 
 - Hourly Response Time-0
 
-Sample mean:          300.05616085170834
-Sample variance:      434.029270390977
-Sample std deviation: 20.833369156019316
+Sample mean:          300.066143895239
+Sample variance:      434.0344919877629
+Sample std deviation: 20.833494473749788
 Maximum:              369.11519830842735
 Minimum:              237.0591758233495
 
