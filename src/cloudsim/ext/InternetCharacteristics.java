@@ -70,10 +70,8 @@ public class InternetCharacteristics {
 		if (instance == null){
 			try {
 				instance = new InternetCharacteristics();
-			} catch (IOException e) {
-				throw new RuntimeException("Failed to load delay matrix. Please make sure config file is" +
-						" available at config/delaymatrix.xml");
-			} catch (URISyntaxException e) {
+			} catch (Exception e) {
+				e.printStackTrace();
 				throw new RuntimeException("Failed to load delay matrix. Please make sure config file is" +
 						" available at config/delaymatrix.xml");
 			}

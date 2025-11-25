@@ -176,12 +176,16 @@ public class Simulation extends BaseCloudSimObservable implements Constants {
 														       d.getRegion(), 
 														       d.getCostPerProcessor(), 
 														       d.getCostPerBw());
-				dcbs.add(controller);
-				dcs.add(dc);
-				
-				int brokerId = controller.get_id();
-				vmlist = createVM(brokerId, d.getVmAllocation().getVmCount());
-				controller.submitVMList(vmlist);
+				if (controller != null) {
+					dcbs.add(controller);
+					dcs.add(dc);
+					
+					int brokerId = controller.get_id();
+					vmlist = createVM(brokerId, d.getVmAllocation().getVmCount());
+					controller.submitVMList(vmlist);
+				} else {
+					System.err.println("Failed to create broker for DC: " + d.getName());
+				}
 			}
 		}
 		
