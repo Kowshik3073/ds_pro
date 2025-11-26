@@ -36,7 +36,7 @@ public class HeadlessRunner implements CloudSimEventListener {
         
         Simulation sim = new Simulation(this);
         sim.setLoadBalancePolicy(algo);
-        sim.setSimulationTime(60 * 60 * 1000.0); // 1 Hour Simulation
+        sim.setSimulationTime(24 * 60 * 60 * 1000.0); // 24 Hour Simulation (1 Day)
 
         // Clear default configuration
         sim.getDataCenters().clear();

@@ -6,11 +6,11 @@ import cloudsim.VirtualMachine;
 public class AntColonyVmLoadBalancer extends VmLoadBalancer {
 	
 	private double[][] pheromones;
-	static final double alpha = 1;
-	static final double beta = 1;
-	static final double ONE_UNIT_PHEROMONE = 1;
-	static final double EVAPORATION_FACTOR = 2;
-	private final int NUM_ANTS = 10;
+	static final double alpha = 1.0;
+	static final double beta = 2.0;
+	static final double ONE_UNIT_PHEROMONE = 1.0;
+	static final double EVAPORATION_FACTOR = 0.5; // Changed from 2 to 0.5 (multiply, not divide)
+	private final int NUM_ANTS = 5; // Reduced from 10 for performance
 
 	Ant[] ants;
 	DatacenterController dcbLocal;
@@ -23,34 +23,81 @@ public class AntColonyVmLoadBalancer extends VmLoadBalancer {
 
 	@Override
 	public int getNextAvailableVm() {
-		if(counter == 0)
-			{
-				pheromones = new double[dcbLocal.vmlist.size() + 1][dcbLocal.vmlist.size() + 1];
-				counter++;
-				ants = new Ant[NUM_ANTS];
-				for (int i = 0; i < ants.length; i++) {
-					ants[i] = new Ant(pheromones);
+		if(counter == 0) {
+			pheromones = new double[dcbLocal.vmlist.size()][dcbLocal.vmlist.size()];
+			// Initialize pheromones based on VM capacity (higher capacity = more initial pheromone)
+			for (int i = 0; i < pheromones.length; i++) {
+				for (int j = 0; j < pheromones.length; j++) {
+					double vmCapacity = getVmCapacity(j);
+					pheromones[i][j] = vmCapacity / 1000.0; // Initialize based on capacity
 				}
 			}
-		
-		for (int ant = 0; ant < ants.length; ant++) {
-			ants[ant].SendAnt(); 
+			counter++;
+			ants = new Ant[NUM_ANTS];
+			for (int i = 0; i < ants.length; i++) {
+				ants[i] = new Ant(pheromones);
+			}
 		}
 		
-		Evaporation();
-
-		Ant queryAnt = new Ant(pheromones);
-		int vmId = queryAnt.FetchFinalVm();
-		allocatedVm(vmId);
-		System.out.println("allocated "+vmId);
-		return vmId;
+		// Find VM with best score (pheromone + capacity - load)
+		int bestVm = 0;
+		double bestScore = Double.NEGATIVE_INFINITY;
+		
+		for (int vmId = 0; vmId < dcbLocal.vmlist.size(); vmId++) {
+			Integer allocationCount = vmAllocationCounts.get(vmId);
+			if (allocationCount == null) {
+				allocationCount = 0;
+			}
+			
+			// Calculate pheromone strength for this VM
+			double pheromoneScore = 0.0;
+			for (int j = 0; j < pheromones.length; j++) {
+				pheromoneScore += pheromones[j][vmId];
+			}
+			
+			double vmCapacity = getVmCapacity(vmId);
+			double loadPenalty = allocationCount * 0.5; // Penalize heavily loaded VMs
+			
+			// ACO score: high pheromone + high capacity - load penalty
+			double score = (pheromoneScore * alpha * 2.0) + (vmCapacity * beta * 3.0) - loadPenalty;
+			
+			if (score > bestScore) {
+				bestScore = score;
+				bestVm = vmId;
+			}
+		}
+		
+		// Strongly reinforce pheromones for selected VM (faster learning)
+		for (int i = 0; i < pheromones.length; i++) {
+			pheromones[i][bestVm] = pheromones[i][bestVm] * (1.0 - EVAPORATION_FACTOR) + (ONE_UNIT_PHEROMONE * 5.0);
+		}
+		
+		allocatedVm(bestVm);
+		System.out.println("allocated " + bestVm);
+		return bestVm;
 	}
 
+	private double getVmCapacity(int vmId) {
+		if (vmId < 0 || vmId >= dcbLocal.vmlist.size()) {
+			return 1.0;
+		}
+		
+		VirtualMachine vm = (VirtualMachine) dcbLocal.vmlist.get(vmId);
+		int cpus = vm.getCpus();
+		long bw = vm.getBw();
+		
+		// Estimate capacity based on CPUs and bandwidth
+		return cpus * 1000.0 + (bw / 1000.0);
+	}
 
 	public void Evaporation() {
 		for (int i = 0; i < pheromones.length; i++) {
 			for (int j = 0; j < pheromones.length; j++) {
-				pheromones[i][j] /= EVAPORATION_FACTOR;
+				pheromones[i][j] *= EVAPORATION_FACTOR;
+				// Ensure minimum pheromone level
+				if (pheromones[i][j] < 0.01) {
+					pheromones[i][j] = 0.01;
+				}
 			}
 		}
 	}
@@ -71,70 +118,56 @@ public class AntColonyVmLoadBalancer extends VmLoadBalancer {
 		}
 
 		public int ProcessAnt(boolean updatePheromones) {
-			int CurrentVmId = fakeVmId;
-			int nextVmId = getNextVmNode(CurrentVmId);
-
-			if (updatePheromones) {
-				UpdatePheromone(CurrentVmId, nextVmId);
+			// Simplified: just select a random VM with pheromone bias
+			int vmId = selectVmByPheromone();
+			
+			if (updatePheromones && vmId >= 0 && vmId < pheromones.length) {
+				UpdatePheromone(0, vmId);
 			}
-			while (nextVmId != CurrentVmId) {
-				CurrentVmId = nextVmId;
-				nextVmId = getNextVmNode(CurrentVmId);
-				if (updatePheromones) {
-					UpdatePheromone(CurrentVmId, nextVmId);
-				}
-			}
-
-			return CurrentVmId;
+			
+			return vmId;
 		}
 
-		// Assuming vmIds start from 0 and are consecutive.
-		// Assumed there is one node that is not visited
-		public int getNextVmNode(int vmId) {
-			double[] probability = computeProbability(vmId);
-			Random rand = new Random();
-			double randomization = rand.doubles(1, 0.0, 0.5).sum();
+		private int selectVmByPheromone() {
+			double[] probability = new double[pheromones.length];
+			double sum = 0.0;
+			
 			for (int i = 0; i < probability.length; i++) {
-				randomization = randomization - probability[i];
-				if (randomization <= 0) {
+				double pheromoneSum = 0.0;
+				for (int j = 0; j < pheromones.length; j++) {
+					pheromoneSum += pheromones[j][i];
+				}
+				probability[i] = Math.pow(pheromoneSum, alpha);
+				sum += probability[i];
+			}
+			
+			// Normalize
+			if (sum > 0) {
+				for (int i = 0; i < probability.length; i++) {
+					probability[i] /= sum;
+				}
+			}
+			
+			// Select based on probability
+			Random rand = new Random();
+			double randomValue = rand.nextDouble();
+			double cumulative = 0.0;
+			
+			for (int i = 0; i < probability.length; i++) {
+				cumulative += probability[i];
+				if (randomValue <= cumulative) {
 					return i;
 				}
 			}
-			for (int i = 0; i < probability.length; i++) {
-				System.out.println("Debug " + probability[i]);
-			}
-			return -1;
+			
+			return 0; // Fallback
 		}
-
-		
-		// Assumes there is at least one node that has not been visited
-		public double[] computeProbability(int vmId) {
-			double[] probability = new double[pheromones.length - 1];
-			double sum = 0.0;
-			for (int i = 0; i < probability.length; i++) {
-				probability[i] = scoreFunction(vmId, i);
-				sum += probability[i];
-			}
-
-			// Normalize
-			for (int i = 0; i < probability.length; i++) {
-				probability[i] = probability[i] / sum;
-			}
-			return probability;
-		}
-
 
 		public void UpdatePheromone(int prevId, int newId) {
-			pheromones[prevId][newId] += ONE_UNIT_PHEROMONE;
-		}
-
-		
-		public double scoreFunction(int prevVmId, int newVmId) {
-			double maxBw = ((VirtualMachine) dcbLocal.vmlist.get(newVmId)).getCharacteristics().getBw();
-			double currentBw = ((VirtualMachine) dcbLocal.vmlist.get(newVmId)).getBw();
-			// double requestedBw = cloudlet.getUtilizationOfBw(0);
-			return Math.pow(pheromones[prevVmId][newVmId], alpha) + 1.0 + (maxBw - currentBw / maxBw);
-
+			if (prevId >= 0 && prevId < pheromones.length && 
+			    newId >= 0 && newId < pheromones.length) {
+				pheromones[prevId][newId] += ONE_UNIT_PHEROMONE;
+			}
 		}
 	}
 }

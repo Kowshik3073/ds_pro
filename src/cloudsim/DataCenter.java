@@ -343,7 +343,7 @@ public class DataCenter extends CloudSim {
             // send back to sender
             Object pack[] = new Object[2];
             pack[0] = filename;
-            pack[1] = new Integer(msg);
+            pack[1] = Integer.valueOf(msg);
 
             super.send(req_source,GridSimTags.SCHEDULE_NOW,tag,pack);
     	}
@@ -385,8 +385,8 @@ public class DataCenter extends CloudSim {
 	        this.debts.put(sentFrom,debit);
 	        
 	        if(ack){
-	        	data[1] = new Integer(-1); // no sender id
-	        	data[2] = new Integer(msg); // the result of adding a master file
+	        	data[1] = Integer.valueOf(-1); // no sender id
+	        	data[2] = Integer.valueOf(msg); // the result of adding a master file
 	        	super.send(sentFrom,GridSimTags.SCHEDULE_NOW,DataGridTags.FILE_ADD_MASTER_RESULT,data);
 	        }
 		

@@ -32,7 +32,7 @@ public class TopologicalNode {
 	public TopologicalNode(int nodeID){
 		//lets initialize all private class attributes
 		this.nodeID = nodeID;
-		this.nodeName = new Integer(nodeID).toString();
+		this.nodeName = Integer.toString(nodeID);
 	}
 
 	/**
@@ -41,7 +41,7 @@ public class TopologicalNode {
 	public TopologicalNode(int nodeID, int x, int y){
 		//lets initialize all private class attributes
 		this.nodeID = nodeID;
-		this.nodeName = new Integer(nodeID).toString();
+		this.nodeName = Integer.toString(nodeID);
 		this.worldX = x;
 		this.worldY = y;
 	}

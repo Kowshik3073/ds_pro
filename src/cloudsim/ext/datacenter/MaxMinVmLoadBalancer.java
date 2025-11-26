@@ -21,9 +21,12 @@ public class MaxMinVmLoadBalancer extends VmLoadBalancer {
 	
 	@Override
 	public int getNextAvailableVm() {
-		// Find VM with maximum allocation that still has good MIPS
-		// This prioritizes already-busy VMs for aggressive load balancing
-		double maxScore = -1;
+		// Max-Min: Find VM with MINIMUM allocation count (least loaded)
+		// This is the "Min" part - selecting the minimum loaded VM
+		// The "Max" part refers to task selection (largest task first), 
+		// which happens in the scheduler, not here
+		
+		int minAllocationCount = Integer.MAX_VALUE;
 		int selectedVmId = 0;
 		
 		for (int vmId = 0; vmId < dcbLocal.vmlist.size(); vmId++) {
@@ -32,19 +35,11 @@ public class MaxMinVmLoadBalancer extends VmLoadBalancer {
 				allocationCount = 0;
 			}
 			
-			double vmMips = getVmMips(vmId);
-			
-			// Score = allocation count * MIPS (favor busy but fast VMs)
-			// If no allocations, give it lowest VM ID
-			double score;
-			if (allocationCount == 0) {
-				score = vmId; // Prefer lowest VM ID for new allocations
-			} else {
-				score = allocationCount * vmMips;
-			}
-			
-			if (score > maxScore || (score == maxScore && vmId < selectedVmId)) {
-				maxScore = score;
+			// Select VM with minimum allocation count
+			// If tied, prefer lower VM ID
+			if (allocationCount < minAllocationCount || 
+			    (allocationCount == minAllocationCount && vmId < selectedVmId)) {
+				minAllocationCount = allocationCount;
 				selectedVmId = vmId;
 			}
 		}

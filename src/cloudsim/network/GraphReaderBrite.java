@@ -127,16 +127,16 @@ public class GraphReaderBrite implements GraphReaderIF {
 			switch(actualParam){
 				case 0:	//System.out.println("nodeID: "+token);
 						//System.out.println("nodeLabel: "+token);
-						nodeID = new Integer(token).intValue();
+						nodeID = Integer.valueOf(token).intValue();
 						nodeLabel = Integer.toString(nodeID);
 						break;
 
 				case 1:	//System.out.println("x-Pos: "+token);
-						xPos = new Integer(token).intValue();
+						xPos = Integer.valueOf(token).intValue();
 						break;
 
 				case 2:	//System.out.println("y-Pos: "+token);
-						yPos = new Integer(token).intValue();
+						yPos = Integer.valueOf(token).intValue();
 						break;
 			}
 		}
@@ -179,11 +179,11 @@ public class GraphReaderBrite implements GraphReaderIF {
 						break;
 
 				case 1:	//System.out.println("fromNode: "+token);
-						fromNode = new Integer(token).intValue();
+						fromNode = Integer.valueOf(token).intValue();
 						break;
 
 				case 2:	//System.out.println("toNode: "+token);
-						toNode = new Integer(token).intValue();
+						toNode = Integer.valueOf(token).intValue();
 						break;
 
 				case 3:	//System.out.println("euclideanLength: "+token);
@@ -191,11 +191,11 @@ public class GraphReaderBrite implements GraphReaderIF {
 						break;
 
 				case 4:	//System.out.println("linkDelay: "+token);
-						linkDelay = new Float(token).floatValue();
+						linkDelay = Float.valueOf(token).floatValue();
 						break;
 
 				case 5:	//System.out.println("linkBandwith: "+token);
-						linkBandwith = new Float(token).intValue();
+						linkBandwith = Float.valueOf(token).intValue();
 						break;
 			}//switch-END
 		}//for-END

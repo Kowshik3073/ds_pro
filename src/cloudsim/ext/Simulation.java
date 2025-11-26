@@ -272,7 +272,15 @@ public class Simulation extends BaseCloudSimObservable implements Constants {
 				dcProcTimes.put(dcName + "||" + measure, m);
 			}
 			
-			printVmAllocations(dcName, dcb.getVmAllocationStats());
+			// printVmAllocations(dcName, dcb.getVmAllocationStats());
+            
+            // Store VM allocation stats for later retrieval
+            Map<String, Map<Integer, Integer>> allVmAllocations = (Map<String, Map<Integer, Integer>>) results.get("VM_ALLOCATION_STATS");
+            if (allVmAllocations == null) {
+                allVmAllocations = new HashMap<String, Map<Integer, Integer>>();
+                results.put("VM_ALLOCATION_STATS", allVmAllocations);
+            }
+            allVmAllocations.put(dcName, dcb.getVmAllocationStats());
 		}
 		results.put(Constants.DC_PROCESSING_TIME_STATS, dcProcTimes);
 		results.put(Constants.DC_ARRIVAL_STATS, dcArrivalStats);

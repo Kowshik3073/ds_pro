@@ -75,7 +75,7 @@ public class DatacenterController extends DatacenterBroker implements GeoLocatab
 		
 		this.dcName = name;
 		
-		System.out.println("Creating new broker " + get_name());
+		System.out.println("Creating new broker " + get_name() + " with policy: '" + loadBalancePolicy + "'");
 		
 		listeners =new ArrayList<CloudSimEventListener>();
 		
@@ -305,6 +305,10 @@ public class DatacenterController extends DatacenterBroker implements GeoLocatab
 	}
 	
 	private void submitWaitingCloudlet(){
+		if (loadBalancer == null){
+			System.out.println("LoadBalancer was null in submitWaitingCloudlet, initializing to MinMin");
+			loadBalancer = new MinMinVmLoadBalancer(this);
+		}
 		int nextAvailVM = loadBalancer.getNextAvailableVm();
 				
 		if ((nextAvailVM != -1) && (waitingQueue.size() > 0)){
