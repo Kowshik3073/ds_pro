@@ -1,98 +1,82 @@
-# Load Balancing Algorithms - 24-Hour Simulation Results
+# Load Balancing Algorithms - Simulation Results
 
 ## Performance Comparison Summary
 
-| Rank | Algorithm | Avg Response Time | Max Response Time | Performance |
-|------|-----------|------------------|-------------------|-------------|
-| **1st** 🥇 | **Ant Colony Optimization** | **51.48 ms** | 62.10 ms | BEST |
-| **2nd** 🥈 | **Honey Bee Foraging** | 51.85 ms | 63.15 ms | Very Good |
-| **3rd** 🥉 | **Max-Min Scheduling** | 51.93 ms | 63.18 ms | Good |
-| **4th** | **Min-Min Scheduling** | 51.94 ms | 63.18 ms | Fair |
+**Simulation Duration:** 5 Minutes (Short-term analysis)
 
-**Performance Gap:** 0.46 ms (0.9% difference between best and worst)
+| Rank | Algorithm | Avg Response Time | Performance Status |
+| :--- | :--- | :--- | :--- |
+| **1st** 🥇 | **Honey Bee Foraging** | **51.49 ms** | **Best** (Fastest Adaptation) |
+| **2nd** 🥈 | **Max-Min Scheduling** | **51.51 ms** | Very Good |
+| **3rd** 🥉 | **Min-Min Scheduling** | **51.52 ms** | Good |
+| **4th** | **Ant Colony Optimization** | **52.44 ms** | Learning Phase |
+| *Test* | *ACO (Tuned Parameters)* | *53.66 ms* | *Over-exploration* |
+| *Test* | *ACO (Corrected Logic)* | *220.48 ms* | *Severe Congestion* |
+
+**Performance Gap:** 0.95 ms (1.8% difference between best and worst standard algorithms)
 
 ---
 
 ## Detailed Results
 
-### 1. Ant Colony Optimization (WINNER)
+### 1. Honey Bee Foraging (WINNER)
 
 **Response Time:**
-- Average: **51.48 ms**
-- Minimum: 40.05 ms
-- Maximum: 62.10 ms
-
-**VM Allocation (DC1):**
-- **Highly Optimized** - VM0 (Fastest) received ~165,000 tasks
-- **Learned Behavior** - Pheromone trails successfully identified best resources over the 24-hour period
-- **Efficient** - Avoided overloading slower VMs
+- Average: **51.49 ms**
+- Minimum: 43.83 ms
+- Maximum: 61.76 ms
 
 **Why It Won:**
-- **Long-Term Learning** - The 24-hour duration allowed pheromone trails to fully converge on the optimal path
-- **Aggressive Optimization** - Prioritized high-capacity (5000 MIPS) hosts
-- **Stability** - Maintained optimal routing once learned
+- **Rapid Adaptation:** HBF is designed to quickly find food sources (VMs) without a long "training" period.
+- **Ideal for Short Runs:** In a 5-minute simulation, its ability to react immediately to load gives it the edge.
 
 ---
 
-### 2. Honey Bee Foraging
+### 2. Max-Min Scheduling
 
 **Response Time:**
-- Average: 51.85 ms
-- Minimum: 40.15 ms
-- Maximum: 63.15 ms
-
-**VM Allocation (DC1):**
-- **Adaptive** - High allocation to faster VMs
-- **Dynamic** - Good balance between exploration and exploitation
-- **Responsive** - Quickly adapted to load changes
+- Average: 51.51 ms
+- Minimum: 43.83 ms
+- Maximum: 61.92 ms
 
 **Why It 2nd:**
-- Very effective but slightly less efficient than the fully converged ACO over a long duration
-- Excellent for dynamic environments
+- **Fairness:** By scheduling larger tasks on faster VMs, it ensures good overall throughput.
+- **Consistency:** Performs reliably without the overhead of complex learning algorithms.
 
 ---
 
-### 3. Max-Min Scheduling
+### 3. Min-Min Scheduling
 
 **Response Time:**
-- Average: 51.93 ms
-- Minimum: 40.20 ms
-- Maximum: 63.18 ms
-
-**VM Allocation (DC1):**
-- **Balanced** - Even distribution across VMs
-- **Fair** - Prevents starvation of large tasks
-- **Static** - Does not adapt to VM performance differences
+- Average: 51.52 ms
+- Minimum: 43.83 ms
+- Maximum: 61.92 ms
 
 **Why It 3rd:**
-- Better than Min-Min due to fairness
-- Lacks the intelligence of ACO and HBF
+- **Greedy:** Very similar to Max-Min in this specific scenario but slightly less efficient at handling the mix of task sizes.
 
 ---
 
-### 4. Min-Min Scheduling
+### 4. Ant Colony Optimization
 
 **Response Time:**
-- Average: 51.94 ms
-- Minimum: 40.20 ms
-- Maximum: 63.18 ms
-
-**VM Allocation (DC1):**
-- **Balanced** - Even distribution
-- **Greedy** - Prioritizes small tasks
-- **Static** - Ignores heterogeneity
+- Average: 52.44 ms
+- Minimum: 43.83 ms
+- Maximum: 62.64 ms
 
 **Why It 4th:**
-- Simple greedy approach is least effective in heterogeneous environments
-- Can lead to load imbalances
+- **Learning Curve:** ACO requires time to build "pheromone trails." In a short 5-minute run, it spends most of its time exploring (learning) rather than exploiting the best paths.
+- **Overhead:** The computational cost of updating pheromones adds a slight delay initially.
+
+### Optimization Attempts
+
+1.  **Tuned Parameters (Ants=10, α=1.0, β=4.0):** Resulted in **53.66 ms**. The high heuristic weight likely caused aggressive selection of high-capacity VMs, leading to minor congestion.
+2.  **Corrected Logic (Roulette Wheel + Voting):** Resulted in **220.48 ms**. The probabilistic selection combined with high Beta caused "herding" behavior where multiple ants/requests targeted the same high-capacity VM, causing severe overload (Max Response Time > 29s).
 
 ---
 
 ## Conclusion
 
-**Winner: Ant Colony Optimization** 🏆
+**Winner: Honey Bee Foraging** 🏆
 
-The Ant Colony Optimization algorithm demonstrated the superior performance in the 24-hour simulation. By effectively learning the environment's heterogeneity through pheromone trails over a long duration, it was able to route traffic to the most capable resources (25,000 MIPS hosts) more efficiently than other algorithms.
-
-**Theoretical Validation:**
-The results confirm the theoretical expectation that **Bio-inspired algorithms (ACO, HBF)** outperform **Static algorithms (Max-Min, Min-Min)** in heterogeneous cloud environments, especially over longer simulation periods where learning algorithms can converge.
+For short-duration cloud scenarios, **Honey Bee Foraging** is the superior choice. It adapts instantly to the heterogeneous environment. **Ant Colony Optimization**, while powerful, requires a longer "warm-up" period to learn the environment and is better suited for long-running, stable workloads.

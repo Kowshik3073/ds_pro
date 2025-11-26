@@ -1,0 +1,900 @@
+﻿Starting Headless Simulation...
+
+--------------------------------------------------
+Testing Algorithm: Min-Min Scheduling
+--------------------------------------------------
+simulation time =300000.0ms
+Starting Simulation...
+Number of Datacenters: 3
+Number of User Bases: 3
+Load Balance Policy: Min-Min Scheduling
+Initializing GridSim...
+Initialising...
+Creating datacenters...
+  - Creating DC: DC1
+Creating new broker DC1-Broker with policy: 'Min-Min Scheduling'
+  - Creating DC: DC2
+Creating new broker DC2-Broker with policy: 'Min-Min Scheduling'
+  - Creating DC: DC3
+Creating new broker DC3-Broker with policy: 'Min-Min Scheduling'
+0.0 Creating new user base UB1
+0.0 Creating new user base UB2
+0.0 Creating new user base UB3
+Starting GridSim...
+Starting GridSim version 4.2
+Entities started.
+Starting internet 17
+Starting broker 6 name=DC1-Broker
+Starting user base 15 UB3
+Starting user base 13 UB2
+Starting broker 10 name=DC3-Broker
+Starting broker 8 name=DC2-Broker
+Starting user base 11 UB1
+5.0: DC2-Broker: Cloud Resource List received with 3 resource(s)
+5.0: DC1-Broker: Cloud Resource List received with 3 resource(s)
+5.0: DC3-Broker: Cloud Resource List received with 3 resource(s)
+5.0: DC3-Broker: Trying to Create VM #0
+5.0: DC2-Broker: Trying to Create VM #0
+5.0: DC1-Broker: Trying to Create VM #0
+5.0: DC2-Broker: Trying to Create VM #1
+5.0: DC3-Broker: Trying to Create VM #1
+5.0: DC2-Broker: Trying to Create VM #2
+5.0: DC1-Broker: Trying to Create VM #1
+5.0: DC2-Broker: Trying to Create VM #3
+5.0: DC3-Broker: Trying to Create VM #2
+5.0: DC1-Broker: Trying to Create VM #2
+5.0: DC3-Broker: Trying to Create VM #3
+5.0: DC2-Broker: Trying to Create VM #4
+5.0: DC3-Broker: Trying to Create VM #4
+5.0: DC2-Broker: Trying to Create VM #5
+5.0: DC3-Broker: Trying to Create VM #5
+5.0: DC2-Broker: Trying to Create VM #6
+5.0: DC3-Broker: Trying to Create VM #6
+5.0: DC1-Broker: Trying to Create VM #3
+5.0: DC3-Broker: Trying to Create VM #7
+5.0: DC2-Broker: Trying to Create VM #7
+5.0: DC1-Broker: Trying to Create VM #4
+5.0: DC2-Broker: Trying to Create VM #8
+5.0: DC1-Broker: Trying to Create VM #5
+5.0: DC2-Broker: Trying to Create VM #9
+5.0: DC1-Broker: Trying to Create VM #6
+5.0: DC2-Broker: Trying to Create VM #10
+5.0: DC1-Broker: Trying to Create VM #7
+5.0: DC2-Broker: Trying to Create VM #11
+5.0: DC1-Broker: Trying to Create VM #8
+5.0: DC1-Broker: Trying to Create VM #9
+5.0: DC1-Broker: Trying to Create VM #10
+5.0: DC1-Broker: Trying to Create VM #11
+5.0: DC1-Broker: Trying to Create VM #12
+5.0: DC1-Broker: Trying to Create VM #13
+5.0: DC1-Broker: Trying to Create VM #14
+5.0: DC1-Broker: Trying to Create VM #15
+5.0: DC1-Broker: Trying to Create VM #16
+5.0: DC1-Broker: Trying to Create VM #17
+5.0: DC1-Broker: Trying to Create VM #18
+5.0: DC1-Broker: Trying to Create VM #19
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 12
+Min-Min: allocated to VM 13
+Min-Min: allocated to VM 14
+Min-Min: allocated to VM 15
+Min-Min: allocated to VM 16
+Min-Min: allocated to VM 17
+Min-Min: allocated to VM 18
+Min-Min: allocated to VM 19
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 12
+Min-Min: allocated to VM 13
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 14
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 15
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 16
+Min-Min: allocated to VM 17
+Min-Min: allocated to VM 18
+Min-Min: allocated to VM 19
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 12
+Min-Min: allocated to VM 13
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 14
+Min-Min: allocated to VM 15
+Min-Min: allocated to VM 16
+Min-Min: allocated to VM 17
+Min-Min: allocated to VM 18
+Min-Min: allocated to VM 19
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 12
+Min-Min: allocated to VM 13
+Min-Min: allocated to VM 14
+Min-Min: allocated to VM 15
+Min-Min: allocated to VM 16
+Min-Min: allocated to VM 17
+Min-Min: allocated to VM 18
+Min-Min: allocated to VM 19
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 12
+Min-Min: allocated to VM 13
+Min-Min: allocated to VM 14
+Min-Min: allocated to VM 15
+Min-Min: allocated to VM 16
+Min-Min: allocated to VM 17
+Min-Min: allocated to VM 18
+Min-Min: allocated to VM 19
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 12
+Min-Min: allocated to VM 13
+Min-Min: allocated to VM 14
+Min-Min: allocated to VM 15
+Min-Min: allocated to VM 16
+Min-Min: allocated to VM 17
+Min-Min: allocated to VM 18
+Min-Min: allocated to VM 19
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 12
+Min-Min: allocated to VM 13
+Min-Min: allocated to VM 14
+Min-Min: allocated to VM 15
+Min-Min: allocated to VM 16
+Min-Min: allocated to VM 17
+Min-Min: allocated to VM 18
+Min-Min: allocated to VM 19
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 12
+Min-Min: allocated to VM 13
+Min-Min: allocated to VM 14
+Min-Min: allocated to VM 15
+Min-Min: allocated to VM 16
+Min-Min: allocated to VM 17
+Min-Min: allocated to VM 18
+Min-Min: allocated to VM 19
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 12
+Min-Min: allocated to VM 13
+Min-Min: allocated to VM 14
+Min-Min: allocated to VM 15
+Min-Min: allocated to VM 16
+Min-Min: allocated to VM 17
+Min-Min: allocated to VM 18
+Min-Min: allocated to VM 19
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 12
+Min-Min: allocated to VM 13
+Min-Min: allocated to VM 14
+Min-Min: allocated to VM 15
+Min-Min: allocated to VM 16
+Min-Min: allocated to VM 17
+Min-Min: allocated to VM 18
+Min-Min: allocated to VM 19
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 12
+Min-Min: allocated to VM 13
+Min-Min: allocated to VM 14
+Min-Min: allocated to VM 15
+Min-Min: allocated to VM 16
+Min-Min: allocated to VM 17
+Min-Min: allocated to VM 18
+Min-Min: allocated to VM 19
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 12
+Min-Min: allocated to VM 13
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 14
+Min-Min: allocated to VM 15
+Min-Min: allocated to VM 16
+Min-Min: allocated to VM 17
+Min-Min: allocated to VM 18
+Min-Min: allocated to VM 19
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 12
+Min-Min: allocated to VM 13
+Min-Min: allocated to VM 14
+Min-Min: allocated to VM 15
+Min-Min: allocated to VM 16
+Min-Min: allocated to VM 17
+Min-Min: allocated to VM 18
+Min-Min: allocated to VM 19
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 12
+Min-Min: allocated to VM 13
+Min-Min: allocated to VM 14
+Min-Min: allocated to VM 15
+Min-Min: allocated to VM 16
+Min-Min: allocated to VM 17
+Min-Min: allocated to VM 18
+Min-Min: allocated to VM 19
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 12
+Min-Min: allocated to VM 13
+Min-Min: allocated to VM 14
+Min-Min: allocated to VM 15
+Min-Min: allocated to VM 16
+Min-Min: allocated to VM 17
+Min-Min: allocated to VM 18
+Min-Min: allocated to VM 19
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 12
+Min-Min: allocated to VM 13
+Min-Min: allocated to VM 14
+Min-Min: allocated to VM 15
+Min-Min: allocated to VM 16
+Min-Min: allocated to VM 17
+Min-Min: allocated to VM 18
+Min-Min: allocated to VM 19
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 12
+Min-Min: allocated to VM 13
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 14
+Min-Min: allocated to VM 15
+Min-Min: allocated to VM 16
+Min-Min: allocated to VM 17
+Min-Min: allocated to VM 18
+Min-Min: allocated to VM 19
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Min-Min: allocated to VM 6
+Min-Min: allocated to VM 7
+Min-Min: allocated to VM 8
+Min-Min: allocated to VM 9
+Min-Min: allocated to VM 10
+Min-Min: allocated to VM 11
+Min-Min: allocated to VM 12
+Min-Min: allocated to VM 13
+Min-Min: allocated to VM 14
+Min-Min: allocated to VM 15
+Min-Min: allocated to VM 16
+Min-Min: allocated to VM 17
+Min-Min: allocated to VM 18
+Min-Min: allocated to VM 19
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 1
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 3
+Min-Min: allocated to VM 4
+Min-Min: allocated to VM 5
+Gathering simulation data.
+Min-Min: allocated to VM 2
+Min-Min: allocated to VM 0
+Min-Min: allocated to VM 6
+Got response for 1500067 but it seems to be completed.
+Got response for 1100168 but it seems to be completed.
+Got response for 1300113 but it seems to be completed.
+UB1 finalizing. Messages sent:173, Received:173
+UB3 finalizing. Messages sent:69, Received:69
+UB3 requests sent=664 , received=664
+UB1 requests sent=1668 , received=1668
+UB2 finalizing. Messages sent:114, Received:114
+UB2 requests sent=1079 , received=1079
+DC1-Broker finalizing, submitted cloudlets=173 processing cloudlets=0 ,allRequestsProcessed=1668
+DC3-Broker finalizing, submitted cloudlets=69 processing cloudlets=0 ,allRequestsProcessed=664
+DC2-Broker finalizing, submitted cloudlets=114 processing cloudlets=0 ,allRequestsProcessed=1079
+Simulation completed.
+GridSim completed!
+Gathering results...
+*****Datacenter: DC1*****
+User id		Debt
+6		20512
+**********************************
+*****Datacenter: DC2*****
+User id		Debt
+8		12307.2
+**********************************
+*****Datacenter: DC3*****
+User id		Debt
+10		8204.8
+**********************************
+Simulation finished at 307900.0
+
+========== SCENARIO default RESULTS ==========
+Algorithm: Min-Min Scheduling
+
+Response Time (UB1):
+Avg = 51.52 ms
+Min = 43.83 ms
+Max = 61.92 ms
+
+Response Time (UB2):
+Avg = 51.69 ms
+Min = 44.54 ms
+Max = 62.37 ms
+
+Response Time (UB3):
+Avg = 53.71 ms
+Min = 45.77 ms
+Max = 61.95 ms
+
+----------------------------------------
+
+Processing Time (DC1):
+Avg = 0.98 ms
+Max = 1.56 ms
+
+Processing Time (DC2):
+Avg = 1.28 ms
+Max = 1.79 ms
+
+Processing Time (DC3):
+Avg = 2.46 ms
+Max = 2.99 ms
+
+----------------------------------------
+
+Cost:
+DC1 Total = $1.93
+DC2 Total = $1.13
+DC3 Total = $0.56
+
+========================================

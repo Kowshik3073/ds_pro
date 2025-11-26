@@ -73,7 +73,6 @@ public class AntColonyVmLoadBalancer extends VmLoadBalancer {
 		}
 		
 		allocatedVm(bestVm);
-		System.out.println("allocated " + bestVm);
 		return bestVm;
 	}
 

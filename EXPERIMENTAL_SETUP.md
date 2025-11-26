@@ -4,7 +4,7 @@
 
 **Framework:** CloudSim  
 **Execution Mode:** Headless (Command-line)  
-**Simulation Duration:** 24 hours (86,400,000 ms)  
+**Simulation Duration:** 5 minutes (300,000 ms)  
 **VM Allocation Policy:** Time Shared  
 **Service Broker Policy:** Closest Data Center (Proximity-based)
 

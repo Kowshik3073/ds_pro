@@ -2,8 +2,10 @@ package cloudsim.ext;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import cloudsim.ext.Constants;
+import cloudsim.ext.gui.utils.SimMeasure;
 import cloudsim.ext.event.CloudSimEvent;
 import cloudsim.ext.event.CloudSimEventListener;
 import cloudsim.ext.gui.DataCenterUIElement;
@@ -36,7 +38,7 @@ public class HeadlessRunner implements CloudSimEventListener {
         
         Simulation sim = new Simulation(this);
         sim.setLoadBalancePolicy(algo);
-        sim.setSimulationTime(24 * 60 * 60 * 1000.0); // 24 Hour Simulation (1 Day)
+        sim.setSimulationTime(5 * 60 * 1000.0); // 5 Minute Simulation for verification
 
         // Clear default configuration
         sim.getDataCenters().clear();
@@ -92,6 +94,97 @@ public class HeadlessRunner implements CloudSimEventListener {
 
         
         sim.runSimulation();
+
+        // --- Print Results ---
+        Map<String, Object> results = sim.getResults();
+        
+        System.out.println("\n========== SCENARIO default RESULTS ==========");
+        System.out.println("Algorithm: " + algo);
+        System.out.println();
+
+        // 2. Response Time (UB Stats)
+        @SuppressWarnings("unchecked")
+        Map<String, SimMeasure> ubStats = (Map<String, SimMeasure>) results.get(Constants.UB_STATS);
+        if (ubStats != null) {
+            List<String> ubNames = new ArrayList<>();
+            for (String key : ubStats.keySet()) {
+                String ubName = key.split("\\|\\|")[0];
+                if (!ubNames.contains(ubName)) {
+                    ubNames.add(ubName);
+                }
+            }
+            java.util.Collections.sort(ubNames);
+
+            for (String ubName : ubNames) {
+                SimMeasure measure = null;
+                for (SimMeasure m : ubStats.values()) {
+                    if (m.getEntityName().equals(ubName) && m.getName().equals(Constants.UB_RESPONSE_TIME)) {
+                        measure = m;
+                        break;
+                    }
+                }
+                
+                if (measure != null) {
+                    System.out.println("Response Time (" + ubName + "):");
+                    System.out.printf("Avg = %.2f ms%n", measure.getAvg());
+                    System.out.printf("Min = %.2f ms%n", measure.getMin());
+                    System.out.printf("Max = %.2f ms%n", measure.getMax());
+                    System.out.println();
+                }
+            }
+        }
+        System.out.println("----------------------------------------");
+        System.out.println();
+
+        // 3. Processing Time (DC Stats)
+        @SuppressWarnings("unchecked")
+        Map<String, SimMeasure> dcStats = (Map<String, SimMeasure>) results.get(Constants.DC_PROCESSING_TIME_STATS);
+        if (dcStats != null) {
+            List<String> dcNames = new ArrayList<>();
+            for (String key : dcStats.keySet()) {
+                String dcName = key.split("\\|\\|")[0];
+                if (!dcNames.contains(dcName)) {
+                    dcNames.add(dcName);
+                }
+            }
+            java.util.Collections.sort(dcNames);
+
+            for (String dcName : dcNames) {
+                SimMeasure measure = null;
+                for (SimMeasure m : dcStats.values()) {
+                    if (m.getEntityName().equals(dcName) && m.getName().equals(Constants.DC_SERVICE_TIME)) {
+                        measure = m;
+                        break;
+                    }
+                }
+
+                if (measure != null) {
+                    System.out.println("Processing Time (" + dcName + "):");
+                    System.out.printf("Avg = %.2f ms%n", measure.getAvg());
+                    System.out.printf("Max = %.2f ms%n", measure.getMax());
+                    System.out.println();
+                }
+            }
+        }
+        System.out.println("----------------------------------------");
+        System.out.println();
+
+        // 4. Costs
+        @SuppressWarnings("unchecked")
+        Map<String, Map<String, Double>> costs = (Map<String, Map<String, Double>>) results.get(Constants.COSTS);
+        if (costs != null) {
+            System.out.println("Cost:");
+            List<String> dcNames = new ArrayList<>(costs.keySet());
+            java.util.Collections.sort(dcNames);
+            
+            for (String dcName : dcNames) {
+                Map<String, Double> dcCost = costs.get(dcName);
+                System.out.printf("%s Total = $%.2f%n", dcName, dcCost.get(Constants.TOTAL_COST));
+            }
+        }
+
+        System.out.println();
+        System.out.println("========================================");
     }
 
     @Override
